@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './admin.scss'
 import Cards from '../assets/Cards';
 import { faScrewdriverWrench, faUserCheck, faUserSlash, faVideo } from '@fortawesome/free-solid-svg-icons';
-// const userId = localStorage.getItem('user_id');
 
 const AdminDasboard = () => {
     // const [enableUserCount, setEnableUserCount] = useState(0);
