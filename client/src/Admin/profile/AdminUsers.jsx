@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { userColumn } from '../assets/data'
 // const userId = localStorage.getItem('user_id');
-import './AdminUsers.scss'
+// import './AdminUsers.scss'
 import { useNavigate } from 'react-router-dom';
 
 const AdminUsers = () => {
@@ -52,13 +52,8 @@ const AdminUsers = () => {
                     return row;
                 });
                 setUserRows(updatedUserRows);
-                // setIsDisabled(status === 'disable');
-                // setMessage(`${status.charAt(0).toUpperCase() + status.slice(1)} Successful`);
-                // setTimeout(() => setMessage(''), 3000);
-            } 
-            // else if (data.message === 'Status Updation Failed') {
-            //     setMessage('Status Updation Failed');
-            // }
+
+            }
         } catch (error) {
             console.error('Error fetching user data:', error)
         }
@@ -102,7 +97,7 @@ const AdminUsers = () => {
                         },
                     }}
                     pageSizeOptions={[10, 15]}
-                    // checkboxSelection
+                // checkboxSelection
                 />
             </div>
         </>

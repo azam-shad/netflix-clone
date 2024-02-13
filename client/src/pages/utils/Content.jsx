@@ -20,6 +20,7 @@ import './content.scss'
 import AdminUsers from '../../Admin/profile/AdminUsers';
 import View from '../../Admin/usersView/View';
 import MoviesUpload from '../../Admin/upload/MoviesUpload';
+import MoviesList from '../../Admin/MoviesList/MoviesList';
 
 
 const Content = () => {
@@ -117,6 +118,10 @@ const Content = () => {
                                             <Route
                                                 path={"dashboard/upload"}
                                                 element={<PrivateRoute element={<MoviesUpload onUnauthorized={() => <Navigate to='/admin/login' />} />} />}
+                                            />
+                                            <Route
+                                                path={"dashboard/movies-list"}
+                                                element={<PrivateRoute element={<MoviesList onUnauthorized={() => <Navigate to='/admin/login' />} />} />}
                                             />
                                             {/* Other admin-specific routes */}
                                         </Routes>

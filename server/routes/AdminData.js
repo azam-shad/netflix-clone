@@ -129,6 +129,24 @@ adminData.put('/updateStatus/:userId', async (req, res) => {
 })
 
 
+adminData.get('/moviesDetails', async (req, res) => {
+
+    try {
+        await poolReadyPromise;
+        // console.log("This is a userDetails");
+
+        const moviesDetail = await pool.query(`SELECT	* from movies`);
+
+        // console.log('viewUsers: ', viewUsers.rows);
+        const adminMoviesList = moviesDetail.rows;
+        res.json({ adminMoviesList });
+    } catch (error) {
+        console.error('Error fetching user details:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+
 
 
 

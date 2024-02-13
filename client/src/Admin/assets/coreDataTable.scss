@@ -1,22 +1,50 @@
-.core-data-grid {
-    width: fit-content;
-    height: fit-content !important;
-    overflow-x: visible !important;
+.datatable {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px;
+    height: fit-content;
+    width: 89%;
+    overflow-x: scroll !important;
 
+    a {
+        text-decoration: none;
+    }
 
+    .title {
+        padding: 15px 20px;
+        border-radius: 5px;
+        // box-shadow: 2px 2px 5px rgb(213, 213, 213);
+        // margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+            font-size: 16px;
+            font-weight: 600;
+            color: gray;
+            text-transform: uppercase;
+        }
+
+        .add-new {
+            .add-new-btn {
+                text-decoration: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                color: rgb(74, 149, 0);
+                background-color: rgba(133, 255, 11, 0.5);
+                cursor: pointer;
+
+                &:hover {
+                    color: white;
+                    background-color: rgba(0, 128, 0, 0.7);
+                }
+            }
+        }
+    }
 
     .data-grid {
         box-shadow: 2px 2px 5px rgb(213, 213, 213);
-        overflow-x: scroll !important;
-
-        &::-webkit-scrollbar {
-            width: 12px; // Set the width of the scrollbar
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background-color: rgba(0, 0, 107, 0.8); // Set the color of the thumb
-            border-radius: 6px; // Set the border radius of the thumb
-        }
     }
 
     .MuiDataGrid-columnHeaders.MuiDataGrid-withBorderColor.css-1iyq7zh-MuiDataGrid-columnHeaders {
@@ -25,15 +53,15 @@
 
     .cellWithImg {
         display: flex;
-        align-items: center;
+        align-items: center !important; 
         gap: 8px;
 
         .user-avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid gray;
+            width: 60%;
+            height: 70%;
+            // border-radius: 50%;
+            object-fit: cover !important;
+            // border: 1px solid gray;
         }
     }
 
@@ -78,7 +106,7 @@
             }
         }
 
-        .delete-btn {
+        .disable-btn {
             padding: 4px 8px;
             border-radius: 5px;
             color: crimson;
@@ -88,6 +116,20 @@
             &:hover {
                 color: white;
                 background-color: rgba(220, 20, 60, 0.7);
+                border: none;
+            }
+        }
+
+        .enable-btn {
+            padding: 4px 8px;
+            border-radius: 5px;
+            color: #198754;
+            border: 1px solid #198754;
+            cursor: pointer;
+
+            &:hover {
+                color: white;
+                background-color: rgb(25, 135, 84);
                 border: none;
             }
         }
