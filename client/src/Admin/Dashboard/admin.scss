@@ -1,0 +1,12 @@
+.allStyle {
+    flex: 8;
+    max-height: 100vh;
+    width: calc(100vw - 200px);
+    margin-left: 10px;
+    margin-top: 3%;
+}
+
+.dashboard {
+    display: flex;
+    gap: 1% !important;
+}

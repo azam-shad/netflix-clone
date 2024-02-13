@@ -1,0 +1,195 @@
+.features {
+    max-width: 100%;
+    width: 100%;
+    // display: flex;
+    // flex-direction: row;
+    margin-bottom: 10vh;
+
+    hr {
+        width: 100%;
+        border-bottom: 2vh solid #232323 !important;
+    }
+
+    .leftSide {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20vh;
+        max-width: 50%;
+        width: 100%;
+        margin-left: 120px;
+        line-height: 2rem;
+
+        h1 {
+            font-size: 8vh;
+            font-weight: 800;
+        }
+
+        p {
+            font-size: 3vh;
+            font-weight: 500;
+        }
+    }
+
+    .rightSide {
+        display: flex;
+        max-width: 50%;
+        width: 100%;
+        margin-left: 100vh;
+        // overflow: hidden;
+
+        img {
+            margin-top: -300px;
+            // padding: 0;
+            position: relative;
+        }
+
+        video {
+            // margin-left: 100vh;
+            object-fit: contain;
+            margin-left: -73vh;
+            margin-top: -310px;
+        }
+    }
+
+    $circle-size: 40px; // Adjust the size of the circle
+    $fill-color: #3498db; // Adjust the fill color
+
+
+    .leftSide1 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10vh;
+        max-width: 40%;
+        width: 100%;
+
+        // margin-left: 120px;
+        // line-height: 2rem;
+        .marginCard {
+            margin-top: -22vh;
+            width: 80%;
+            margin-left: 10rem;
+            line-height: 2px;
+            border-radius: 18px;
+
+            .custom-animatedd {
+                margin-left: 33vh;
+                margin-top: -45px !important;
+                top: auto;
+                // height: 10px;
+
+                position: relative;
+                display: block;
+                width: $circle-size;
+                height: $circle-size;
+                overflow: hidden;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 50%;
+                    height: 50%;
+                    border: 1px solid white;
+                    background: conic-gradient($fill-color 0deg 0.25turn,
+                            transparent 0.25turn 1turn);
+                    background: $fill-color;
+                    // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                    // background: conic-gradient(transform 0% 0%,
+                    //         $fill-color 0% 25%,
+                    //         transform 25% 100%);
+                    animation: fillAnimation 4s linear infinite;
+                    border-radius: 50%;
+
+                    &.show {
+                        display: none;
+                    }
+
+
+                }
+
+                .download-arrow {
+                    opacity: 0;
+                    // z-index: 1;
+
+                    // display: none;
+                    transition: opacity 0.5s ease;
+
+                    &.show {
+                        opacity: 1;
+                        // display: block;
+                    }
+
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                        fill: white; // Adjust the color as needed
+                    }
+                }
+            }
+
+            @keyframes fillAnimation {
+
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+
+                // 0%,
+                // 25% {
+                //     clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+                // }
+
+                // 100% {
+                //     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                // }
+                0%,
+                100% {
+                    background: conic-gradient(transparent 0% 0%, $fill-color 0% 25%, transparent 25% 100%);
+                    animation-iteration-count: 2;
+                }
+
+                25% {
+                    background: conic-gradient(transparent 0% 25%, $fill-color 25% 50%, transparent 50% 100%);
+                }
+
+                50% {
+                    background: conic-gradient(transparent 0% 50%, $fill-color 50% 75%, transparent 75% 100%);
+                }
+
+                75% {
+                    background: conic-gradient(transparent 0% 75%, $fill-color 75% 100%, transparent 100% 100%);
+                }
+            }
+
+        }
+
+        img {
+            position: relative;
+        }
+    }
+
+    .rightSide1 {
+        display: flex;
+        flex-direction: column;
+        max-width: 55%;
+        width: 100%;
+        margin-left: 90vh;
+
+
+        h1 {
+            margin-top: -350px;
+            font-size: 8vh;
+            font-weight: 800;
+        }
+
+        p {
+            font-size: 3.7vh;
+            font-weight: 500;
+        }
+    }
+
+}

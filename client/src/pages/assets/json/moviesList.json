@@ -1,0 +1,150 @@
+{
+    "popular": [
+        {
+            "id": 1,
+            "title": "The Road Trick",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p1.png",
+            "descr": "Magician Adam Trent has spent years wowing audiences at his stage shows. Now, he wants to hit the road and see how his magic can connect with people on a more personal level. The journey he takes will amaze both himself and the people he encounters."
+        },
+        {
+            "id": 2,
+            "title": "Wynonna Earp",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p2.png",
+            "descr": "Battling demons and other creatures with her unique abilities and a posse of dysfunctional allies, Wyatt Earp's great great-granddaughter Wynonna is the only thing that can bring the paranormal to justice."
+        },
+        {
+            "id": 3,
+            "title": "The Ballad of Hugo Sánchez",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p3.png",
+            "descr": "Hugo Sanchez is tasked with leading the Cuervos into the Duel of the Birds tournament despite his personal life pulling him back toward the family business."
+        },
+        {
+            "id": 4,
+            "title": "Grey's Anatomy",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p4.png",
+            "descr": "A drama centered on the personal and professional lives of five surgical interns and their supervisors."
+        },
+        {
+            "id": 5,
+            "title": "Step Up 2: The Streets",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p5.png",
+            "descr": "Romantic sparks occur between two dance students from different backgrounds at the Maryland School of the Arts."
+        },
+        {
+            "id": 6,
+            "title": "Liquid Science: that's genius",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p6.png",
+            "descr": "In this vivid series about the wonders of science, the Wu-Tang Clan's GZA aka 'The Genius' travels far and wide to meet innovators who are changing our world."
+        },
+        {
+            "id": 7,
+            "title": "13 Reasons Why",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p7.png",
+            "descr": "Follows teenager Clay Jensen, in his quest to uncover the story behind his classmate and crush, Hannah, and her decision to end her life."
+        },
+        {
+            "id": 8,
+            "title": "The Staircase",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p8.png",
+            "descr": "The high-profile murder trial of American novelist Michael Peterson following the death of his wife in 2001."
+        },
+        {
+            "id": 9,
+            "title": "The Vietnam War",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p9.png",
+            "descr": "A comprehensive history of the United States' involvement in the bitterly divisive armed conflict in Southeast Asia."
+        },
+        {
+            "id": 10,
+            "title": "The Covenant",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p10.png",
+            "descr": "Four young men who belong to a New England supernatural legacy are forced to battle a fifth power long thought to have died out. Meanwhile, jealousy and suspicion threaten to tear them apart."
+        },
+        {
+            "id": 11,
+            "title": "Marcella",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p11.png",
+            "descr": "Marcella Backland left the Metropolitan Police for the sake of her family, only to have her husband leave her. She returns to her job on the murder squad, investigating a case that seems disturbingly familiar to her."
+        },
+        {
+            "id": 12,
+            "title": "Riverdale",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p12.png",
+            "descr": "While navigating the troubled waters of romance, school and family, Archie and his gang become entangled in dark Riverdale mysteries."
+        }
+    ],
+    "tvshows": [
+        {
+            "id": 1,
+            "title": "Hawaii Five-O",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv1.png",
+            "descr": "The investigations of Hawaii Five-0, an elite branch of the Hawaii State Police answerable only to the governor and headed by stalwart Steve McGarrett."
+        },
+        {
+            "id": 2,
+            "title": "The Flash",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv3.png",
+            "descr": "After being struck by lightning, Barry Allen wakes up from his coma to discover he's been given the power of super speed, becoming the Flash, and fighting crime in Central City."
+        },
+        {
+            "id": 3,
+            "title": "Black Lightning",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv4.png",
+            "descr": "A crusading school principal gets back into action as the original African-American electrical superhero."
+        },
+        {
+            "id": 4,
+            "title": "New Girl",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv5.png",
+            "descr": "After a bad break-up, Jess, an offbeat young woman, moves into an apartment loft with three single men. Although they find her behavior very unusual, the men support her - most of the time."
+        },
+        {
+            "id": 5,
+            "title": "DC's Legends of Tomorrow",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv6.png",
+            "descr": "Time-traveling rogue Rip Hunter must recruit a ragtag team of heroes and villains to help prevent an apocalypse that could impact not only Earth, but all of time."
+        },
+        {
+            "id": 6,
+            "title": "Agents of S.H.I.E.L.D.",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv7.png",
+            "descr": "The missions of the Strategic Homeland Intervention, Enforcement and Logistics Division."
+        },
+        {
+            "id": 7,
+            "title": "Marlon",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv8.png",
+            "descr": "A loving but immature father with a larger-than-life personality is committed to co-parenting his two kids with his very-together ex-wife. For Marlon, family always comes first--even if he's the biggest kid of all."
+        },
+        {
+            "id": 8,
+            "title": "Cooking on High",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv9.png",
+            "descr": "Competitive cooking show where the primary ingredient is marijuana."
+        },
+        {
+            "id": 9,
+            "title": "Queer Eye",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv10.png",
+            "descr": "A new Fab Five set out to Atlanta to help some of the city's people refine their wardrobes, grooming, diet, cultural pursuits, and home décor."
+        },
+        {
+            "id": 10,
+            "title": "Shooter",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv11.png",
+            "descr": "A conspiracy thriller that follows the journey of Bob Lee Swagger, a highly-decorated veteran who is coerced back into action to prevent a plot to kill the President."
+        },
+        {
+            "id": 11,
+            "title": "Marvel's Jessica Jones",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/tv12.png",
+            "descr": "Following the tragic end of her brief superhero career, Jessica Jones tries to rebuild her life as a private investigator, dealing with cases involving people with remarkable abilities in New York City."
+        },
+        {
+            "id": 12,
+            "title": "Riverdale",
+            "image": "https://raw.githubusercontent.com/shad-azam/images/main/img/p12.png",
+            "descr": "While navigating the troubled waters of romance, school and family, Archie and his gang become entangled in dark Riverdale mysteries."
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "PopularNetflix": [
+        {
+            "id": 1,
+            "name": "Popular on Netflix",
+            "images": [
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p1.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p2.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p3.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p4.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p5.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p6.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p7.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p8.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p9.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p10.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p11.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/p12.png"
+            ],
+            "subTitle": "more",
+            "link": "/dashboard/home"
+        }
+    ],
+    "trendingnow": [
+        {
+            "id": 1,
+            "name": "Trending Now",
+            "images": [
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/t1.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/t2.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/t5.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/t6.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv4.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv5.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv6.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv7.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv8.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv9.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv10.png"
+            ],
+            "subTitle": "more"
+        }
+    ],
+    "tvshows": [
+        {
+            "id": 1,
+            "name": "TV Shows",
+            "images": [
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv1.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv3.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv4.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv5.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv6.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv7.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv8.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv9.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv10.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv11.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv12.png"
+            ],
+            "subTitle": "more",
+            "link": "/dashboard/tvshows"
+        }
+    ],
+    "netflixoriginals": [
+        {
+            "id": 1,
+            "name": "Netflix Originals",
+            "images": [
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/o4.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/o6.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv4.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv5.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv6.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv7.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv8.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv9.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv10.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv11.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv12.png"
+            ],
+            "subTitle": "more"
+        }
+    ],
+    "blockbusteractionadventure": [
+        {
+            "id": 1,
+            "name": "Blockbuster Action & Adventure",
+            "images": [
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/m1.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/m2.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/m3.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/m4.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/m5.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/m6.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv7.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv8.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv9.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv10.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv11.png",
+                "https://raw.githubusercontent.com/shad-azam/images/main/img/tv12.png"
+            ],
+            "subTitle": "more"
+        }
+    ]
+}
