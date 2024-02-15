@@ -12,11 +12,7 @@ const MoviesList = () => {
                 const responce = await fetch(`http://localhost:5000/adminData/moviesDetails`);
                 const data = await responce.json();
                 const rowsWithId = data.adminMoviesList.map((row, index) => ({ ...row, id: index + 1 }));
-
-
                 setMoviesRow(rowsWithId)
-
-
                 console.log('movies List: ', rowsWithId);
             } catch (error) {
                 console.error('Error fetching user data:', error)

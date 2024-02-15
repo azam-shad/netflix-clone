@@ -136,14 +136,34 @@ adminData.get('/moviesDetails', async (req, res) => {
         // console.log("This is a userDetails");
 
         const moviesDetail = await pool.query(`SELECT 
-        m.*,
-        c.category_name
-    FROM 
-        movies m
-    JOIN 
-        movies_category mc ON m.movie_id = mc.movie_id
-    JOIN 
-        category c ON mc.category_id = c.category_id;`);
+        m.movie_id,
+        m.title,
+        m.description,
+        m.release_date,
+        m.duration,
+        m.poster_url,
+        m.director,
+        g.name,
+        STRING_AGG(c.category_name::TEXT, ', ') AS category_name
+        FROM 
+            movies m
+        JOIN 
+            movies_category mc ON m.movie_id = mc.movie_id
+        JOIN 
+            category c ON mc.category_id = c.category_id
+        JOIN 
+            movie_genres mg ON m.movie_id = mg.movie_id
+        JOIN 
+            genres g ON mg.genre_id = g.genre_id
+        GROUP BY 
+            m.movie_id,
+            m.title,
+            m.description,
+            m.release_date,
+            m.duration,
+            m.poster_url,
+            m.director,
+            g.name`);
 
         // console.log('viewUsers: ', viewUsers.rows);
         const adminMoviesList = moviesDetail.rows;
