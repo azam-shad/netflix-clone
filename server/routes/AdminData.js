@@ -135,13 +135,38 @@ adminData.get('/moviesDetails', async (req, res) => {
         await poolReadyPromise;
         // console.log("This is a userDetails");
 
-        const moviesDetail = await pool.query(`SELECT	* from movies`);
+        const moviesDetail = await pool.query(`SELECT 
+        m.*,
+        c.category_name
+    FROM 
+        movies m
+    JOIN 
+        movies_category mc ON m.movie_id = mc.movie_id
+    JOIN 
+        category c ON mc.category_id = c.category_id;`);
 
         // console.log('viewUsers: ', viewUsers.rows);
         const adminMoviesList = moviesDetail.rows;
         res.json({ adminMoviesList });
     } catch (error) {
         console.error('Error fetching user details:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+
+adminData.get('/category_genres', async (req, res) => {
+    try {
+        await poolReadyPromise;
+        const categoryDetail = await pool.query(`SELECT	* from category`);
+
+        const genresDetails = await pool.query(`SELECT	* from genres`);
+        const detailsGenres = genresDetails.rows;
+
+        const detailsCategory = categoryDetail.rows;
+        res.json({ detailsCategory, detailsGenres });
+    } catch (error) {
+        console.error('Error fetching details:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 })

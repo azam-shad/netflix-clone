@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import { userColumn } from '../assets/moviesTable';
 import '../assets/coreDataTable.scss';
+import { Link } from 'react-router-dom';
 
 const MoviesList = () => {
     const [moviesRow, setMoviesRow] = useState([]);
@@ -27,9 +28,9 @@ const MoviesList = () => {
         <div className="datatable">
             <div className="title">
                 <h1>Movies List</h1>
-                {/* <div className="add-new">
-                        <Link to='/dashboard/users/new' className='add-new-btn'>Add New</Link>
-                    </div> */}
+                <div className="btn btn-primary text-decoration-none text-white">
+                    <Link to='/admin/dashboard/upload' className='add-new-btn text-white'>Add New</Link>
+                </div>
             </div>
             <DataGrid
                 className='data-grid'
@@ -38,10 +39,9 @@ const MoviesList = () => {
                 getRowHeight={() => 170}
                 initialState={{
                     pagination: {
-                        paginationModel: { page: 0, pageSize: 5 },
+                        paginationModel: { page: 0, pageSize: 3 },
                     },
                 }}
-                pageSizeOptions={[5, 10]}
             />
         </div>
     )

@@ -40,18 +40,30 @@ uploadData.post('/uploadMovie', dataUploads.fields([
     { name: 'poster_url' },
     { name: 'trailer_url' },
     { name: 'video_url' },
-    { name: 'movieId' }
+    { name: 'movieId' },
+    { name: 'categoryID' },
+    { name: 'genresID' }
 ]), async (req, res) => {
     try {
         const posterFile = req.files['poster_url'][0].filename;
         const trailerFile = req.files['trailer_url'][0].filename;
         const videoFile = req.files['video_url'][0].filename;
         const movieId = req.body.movieId;
-        console.log('ID is: ', movieId)
+        const categoryIDs = req.body.categoryID.split(',').map(Number);;
+        const genresID = req.body.genresID;
+
+        console.log('categoryID: ', categoryIDs)
 
         await poolReadyPromise;
 
-        const moviesDataImage = pool.query(`UPDATE movies SET poster_url = $1, trailer_url = $2, video_url = $3 WHERE movie_id = $4`, [posterFile, trailerFile, videoFile, movieId])
+        const moviesDataImage = pool.query(`UPDATE movies SET poster_url = $1, trailer_url = $2, video_url = $3 WHERE movie_id = $4`, [posterFile, trailerFile, videoFile, movieId]);
+
+        for (const categoryId of categoryIDs) {
+            await pool.query(`insert into movies_category (movie_id, category_id) values($1, $2)`, [movieId, categoryId])
+        }
+
+        await pool.query(`insert into movie_genres (movie_id, genre_id) values($1, $2)`, [movieId, genresID]);
+
         if (moviesDataImage) {
             res.json({ message: 'Movies Upload Successfully' });
         } else {

@@ -3,8 +3,8 @@
 // import user_image from '../images/userDefault.jpg';
 
 export const userColumn = [
-    { field: 'id', headerName: 'Serial Number', width: 200, sortable: false },
-    {field: 'title', headerName: 'Title', width: 200, },
+    { field: 'id', headerName: 'S.No', width: 50, sortable: false },
+    { field: 'title', headerName: 'Title', width: 200, },
     {
         field: 'poster_url', headerName: 'Poster', width: 200, renderCell: (params) => {
             return (
@@ -19,8 +19,10 @@ export const userColumn = [
         },
     },
     { field: 'director', headerName: 'Director Name', width: 200 },
-    { field: 'release_date', headerName: 'Release Date', width: 200 },
-    { field: 'duration', headerName: 'Length', width: 200 },
+    { field: 'release_date', headerName: 'Release Date', width: 150 },
+    { field: 'duration', headerName: 'Length', width: 100 },
+    { field: 'category_name', headerName: 'Category', width: 250 },
+    { field: 'genres', headerName: 'Genres', width: 150 },
 
 ];
 
