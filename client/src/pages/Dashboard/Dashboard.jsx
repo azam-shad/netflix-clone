@@ -12,9 +12,11 @@ const Dashboard = () => {
     // const userId = localStorage.getItem('user_id')
     // console.log(userId)
 
+
     return (
         <>
             {/* <NavBar /> */}
+            {/* <MoviesGrid key={'key'} title={'Popular on Netflix'} images={'user.images'} subTitle={'more'} link={'user.link'} /> */}
             {
                 data.PopularNetflix.map((user, key) => (
                     <MoviesGrid key={key} title={user.name} images={user.images} subTitle={user.subTitle} link={user.link} />

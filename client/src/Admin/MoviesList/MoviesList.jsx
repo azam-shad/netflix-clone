@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom';
 
 const MoviesList = () => {
     const [moviesRow, setMoviesRow] = useState([]);
+
+
+
     useEffect(() => {
+
         const moviesLists = async () => {
             try {
                 const responce = await fetch(`http://localhost:5000/adminData/moviesDetails`);
@@ -19,7 +23,9 @@ const MoviesList = () => {
             }
         }
         moviesLists();
+
     }, [])
+    
     return (
         <div className="datatable">
             <div className="title">
@@ -38,6 +44,7 @@ const MoviesList = () => {
                         paginationModel: { page: 0, pageSize: 3 },
                     },
                 }}
+                pageSizeOptions={[3]}
             />
         </div>
     )

@@ -3,7 +3,7 @@ const poolReadyPromise = require('../utils/db');
 const pool = require('../utils/db');
 
 
-adminData.post('/counts', async (req, res) => {
+adminData.get('/counts', async (req, res) => {
     await poolReadyPromise
 
     const userCounts = await pool.query(`SELECT COUNT(uar.user_id)

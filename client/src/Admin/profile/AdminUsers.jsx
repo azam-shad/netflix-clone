@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AdminUsers = () => {
     const [userRows, setUserRows] = useState([]);
+   
     // const [isDisabled, setIsDisabled] = useState(false);
     const history = useNavigate();
 
@@ -18,6 +19,7 @@ const AdminUsers = () => {
     };
 
     useEffect(() => {
+        
         const fetchData = async () => {
             try {
                 const responce = await fetch(`http://localhost:5000/adminData/userDetails`);
@@ -32,6 +34,7 @@ const AdminUsers = () => {
             }
         }
         fetchData();
+        
     }, [])
 
     const updateUserStatus = async (userId, status) => {
@@ -77,6 +80,7 @@ const AdminUsers = () => {
             }
         }
     ]
+
 
     return (
         <>

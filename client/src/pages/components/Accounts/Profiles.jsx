@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAt, faBroom, faEdit, faLock, faMap, faSave } from '@fortawesome/free-solid-svg-icons';
 import ChangePassword from './ChangePassword';
 import './profile.scss';
+import Loders from '../../assets/Common/Loders';
 
 
 const Profiles = () => {
@@ -33,8 +34,13 @@ const Profiles = () => {
     const [uploadedImage, setUploadedImage] = useState(null);
     const formRef = useRef();
     const fileInputRef = useRef();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const timeout = setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+
         const handleClickOutside = (event) => {
             if (formRef.current && !formRef.current.contains(event.target)) {
                 setClickedInput(null);
@@ -43,6 +49,7 @@ const Profiles = () => {
         document.addEventListener('click', handleClickOutside);
         return () => {
             document.removeEventListener('click', handleClickOutside);
+            clearTimeout(timeout)
         };
     }, []);
     const updateAddress = async (e) => {
@@ -216,6 +223,11 @@ const Profiles = () => {
         // ... (clear other fields)
         setEditMode(false); // Step 4
     };
+    if (loading) {
+        return (
+            <Loders />
+        );
+    }
     return (
         <div className='container-xxl profileMain' ref={formRef}>
             {showAlert && <Alert variant='success' className='alertMessage'> Updated Successfully</Alert>}

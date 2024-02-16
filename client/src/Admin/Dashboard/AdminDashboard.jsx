@@ -3,21 +3,19 @@ import './admin.scss'
 import Cards from '../assets/Cards';
 import { faScrewdriverWrench, faUserCheck, faUserSlash, faVideo } from '@fortawesome/free-solid-svg-icons';
 
-const AdminDasboard = () => {
+const AdminDashboard = () => {
     // const [enableUserCount, setEnableUserCount] = useState(0);
     const [moviesCount, setMoviesCount] = useState(0)
     const [disableUsers, setDisableUsers] = useState(0);
     const [adminCount, setAdminCount] = useState(0);
     const [subscribers, setSubscribers] = useState(0);
 
+
     useEffect(() => {
+
         const fetchData = async () => {
 
-            const responce = await fetch(`http://localhost:5000/adminData/counts`, {
-                method: 'POST',
-                mode: 'cors',
-                headers: { 'Content-Type': 'application/json' },
-            });
+            const responce = await fetch(`http://localhost:5000/adminData/counts`);
             if (responce.ok) {
                 const data = await responce.json();
                 setAdminCount(data.countsAdmin);
@@ -28,7 +26,9 @@ const AdminDasboard = () => {
             }
         }
         fetchData();
-    })
+
+    }, [])
+
     return (
 
         <>
@@ -45,4 +45,4 @@ const AdminDasboard = () => {
     )
 }
 
-export default AdminDasboard
+export default AdminDashboard

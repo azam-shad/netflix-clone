@@ -11,6 +11,7 @@ const MoviesGrid = ({ title, images, subTitle, link }) => {
                     <Link to={link}>{subTitle}</Link>
                 </div>
                 <div className="box mt-1">
+                    {/* <Link to={'#'} ><img src={images} alt={`PopularImage ${images}`} /></Link> */}
                     {images && images.map((image, index) => (
                         <Link to={'#'} key={index}><img key={index} src={image} alt={`PopularImage ${index + 1}`} /></Link>
                     ))}

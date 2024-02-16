@@ -13,11 +13,15 @@ const showHeaders = (isLoggedIn) => {
 }
 const showAdmin = (isAdminLogin) => {
     console.log("window location", window.location.pathname)
+    // return true;
     return (
         isAdminLogin ? (
             window.location.pathname === "/admin" ||
             window.location.pathname === "/admin/dashboard" ||
-            window.location.pathname === "/admin/dashboard/users"
+            window.location.pathname === "/admin/dashboard/users" ||
+            window.location.pathname === "/admin/dashboard/upload" ||
+            window.location.pathname === "/admin/dashboard/movies-list"
+
         ) : (
             <Navigate to={'/admin/login'} />
         )
@@ -26,11 +30,11 @@ const showAdmin = (isAdminLogin) => {
 const showNavBar = (isLoggedIn) => {
     return (
         isLoggedIn && (
-            window.location.pathname === '/dashboard/tvshows' ||
+            window.location.pathname === '/dashboard' ||
             window.location.pathname === '/dashboard/home' ||
+            window.location.pathname === '/dashboard/tvshows' ||
             window.location.pathname === '/dashboard/profile' ||
-            window.location.pathname === '/dashboard/setpassword' ||
-            window.location.pathname === '/dashboard'
+            window.location.pathname === '/dashboard/setpassword'
         )
     )
 }

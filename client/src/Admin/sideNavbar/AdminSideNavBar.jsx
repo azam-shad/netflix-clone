@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import { Link } from 'react-router-dom';
 import { sidebarData } from '../assets/sidebarData';
 // import adminLogo from '../../pages/assets/logo.png'
@@ -11,6 +11,7 @@ import './sidebar.scss';
 
 const AdminSideNavBar = () => {
     const { adminLogout } = useAuth();
+    
 
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
@@ -18,8 +19,7 @@ const AdminSideNavBar = () => {
     const toggleSubmenu = () => {
         setIsSubmenuOpen(!isSubmenuOpen);
     };
-
-
+   
     return (
         <>
             <div className="sidebar">

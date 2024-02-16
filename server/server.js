@@ -10,7 +10,7 @@ const uploadData = require('./routes/adminUploadData')
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const corsOptions = {
     origin: 'http://localhost:3000',
@@ -32,6 +32,12 @@ app.use('/adminUpload', uploadData);
 
 
 
+app.use(express.static('client'));
+
+// Catch-all route handler
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
+});
 
 
 
