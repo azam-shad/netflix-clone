@@ -60,10 +60,6 @@ const RevenueStatistics = () => {
     ];
 
 
-
-
-    console.log('basicCount: ', basicCount)
-
     // Prepare data for chart
     const chartData = {
         labels: mockRevenueData.map(data => data.month),

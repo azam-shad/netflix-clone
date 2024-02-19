@@ -50,7 +50,7 @@ const AdminDashboard = () => {
                     <Grid item xs={3}>
                         <Cards header='Disable Subscribers' icons={faUserSlash} title={disableUsers} />
                     </Grid>
-                    
+
                     <Grid item xs={9}>
                         {/* <Cards header='Total Movies' icons={faVideo} title={moviesCount} /> */}
                         <RevenueStatistics />

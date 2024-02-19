@@ -3,9 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, Col, Row } from 'react-bootstrap';
 
 
-
-
 const Cards = ({ header, icons, title, desc, release_date, genres, average_rating, movie_title }) => {
+
     return (
         <Row xs={1} md={1} className=' mb-1'>
             <Col>
