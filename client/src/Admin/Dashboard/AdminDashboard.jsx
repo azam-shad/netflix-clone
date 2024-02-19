@@ -52,16 +52,10 @@ const AdminDashboard = () => {
                     </Grid>
 
                     <Grid item xs={9}>
-                        {/* <Cards header='Total Movies' icons={faVideo} title={moviesCount} /> */}
                         <RevenueStatistics />
                     </Grid>
                     <Grid item xs={3}>
-                        {/* <Cards header='Subscribers' icons={faUserCheck} title={subscribers} /> */}
                         <TrendingMovies />
-                    </Grid>
-                    <Grid item xs={12}>
-                        {/* <Cards header='Admin users' icons={faScrewdriverWrench} title={adminCount} /> */}
-                        {/* <TrendingMovies /> */}
                     </Grid>
                     {/* <Grid item xs={3}>
                         <Cards header='Subscribers' icons={faUserCheck} title={subscribers} />
