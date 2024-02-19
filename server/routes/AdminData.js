@@ -165,9 +165,55 @@ adminData.get('/moviesDetails', async (req, res) => {
             m.director,
             g.name`);
 
+
+        const TrendingMovies = await pool.query(`select
+        m.title, 
+        m.release_date, 
+        m.average_rating, 
+        array_agg(g.name) as genres
+       FROM 
+           movies m
+       JOIN 
+           movie_genres mg ON m.movie_id = mg.movie_id
+       JOIN 
+           genres g ON mg.genre_id = g.genre_id
+       WHERE 
+           TO_DATE(m.release_date, 'YYYY-MM-DD') >= CURRENT_DATE - INTERVAL '10000 days'::interval
+       GROUP BY 
+           m.movie_id, m.title, m.release_date, m.average_rating
+       ORDER BY 
+           m.total_views DESC
+       LIMIT 3`);
+
+        const RevenueStatistics = await pool.query(`SELECT 
+       ua.user_id, 
+       ua.firstname, 
+       sc.price, 
+       sc.name
+   FROM 
+       users_accounts ua
+   JOIN 
+       subscriptions s ON ua.subscription_id = s.subscription_id
+   JOIN 
+       subscriptions_cat sc ON s.subscription_cat_id = sc.subscription_cat_id`);
+
+
+        const BasicReven = await pool.query(`select count(subscription_id) from users_accounts where  subscription_id = 1`);
+        const StandardReven = await pool.query(`select count(subscription_id) from users_accounts where  subscription_id = 2`);
+        const PremiumdReven = await pool.query(`select count(subscription_id) from users_accounts where  subscription_id = 3`);
+
+
+        const revenueBasic = BasicReven.rows[0].count
+        const revenueStandard = StandardReven.rows[0].count
+        const revenuePremium = PremiumdReven.rows[0].count
+
+
+        const revenueMovies = RevenueStatistics.rows
+
         // console.log('viewUsers: ', viewUsers.rows);
+        const trandMovies = TrendingMovies.rows;
         const adminMoviesList = moviesDetail.rows;
-        res.json({ adminMoviesList });
+        res.json({ adminMoviesList, trandMovies, revenueMovies, revenueBasic, revenueStandard, revenuePremium });
     } catch (error) {
         console.error('Error fetching user details:', error);
         res.status(500).json({ error: 'Internal Server Error' });
