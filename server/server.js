@@ -7,6 +7,7 @@ const view = require('./routes/showData');
 const updateDetail = require('./routes/upadeDetails')
 const adminData = require('./routes/AdminData');
 const uploadData = require('./routes/adminUploadData')
+const path = require('path');
 
 const app = express();
 
