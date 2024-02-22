@@ -23,6 +23,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'client')));
 
 //  ROUTERS (register and login)
 app.use('/auth', router);
@@ -33,9 +34,13 @@ app.use('/adminUpload', uploadData);
 
 
 
-app.use(express.static('client'));
+// app.use(express.static('client'));
 
 // Catch-all route handler
+// app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
+// });
+
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
 });
