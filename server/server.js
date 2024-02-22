@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //     optionsSuccessStatus: 204,
 // }
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://netflix-clone-nine-tawny.vercel.app'],
+    origin: ['https://netflix-clone-nine-tawny.vercel.app', 'http://localhost:3000' ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 200,
