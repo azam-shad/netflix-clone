@@ -79,9 +79,9 @@ const AdminLogin = () => {
                     </Form.Group>
 
                     <div className="form-group">
-                        <button type="submit" className="btn btn-danger btn-block"> Login  </button>
+                        <button type="submit" className="btn btn-danger btn-block mb-2"> Login  </button>
                     </div>
-                    <p className="text-center mt-1 mb-1 ">Don't have an account? <Link to={'/register'}  >Create one.</Link> </p>
+                    {/* <p className="text-center mt-1 mb-1 ">Don't have an account? <Link to={'/admin/register'}  >Create one.</Link> </p> */}
                 </Form>
             </div>
         </>

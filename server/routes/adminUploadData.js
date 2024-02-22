@@ -80,4 +80,60 @@ uploadData.post('/uploadMovie', dataUploads.fields([
     }
 });
 
+uploadData.post('/updateCatGen', async (req, res) => {
+    const { movieId, categoryID, genresID } = req.body;
+    console.log('movieId, categoryID, genresID : ', movieId, categoryID, genresID);
+    try {
+        await poolReadyPromise;
+        if (Array.isArray(categoryID)) {
+            for (const categoryId of categoryID) {
+                // console.log();
+                // Query to check if category_id already exists for any movie
+                const checkCondition = await pool.query(`SELECT * FROM movies_category WHERE movie_id = $1 ORDER BY category_id ASC`, [movieId]);
+                const existingCategoryIds = checkCondition.rows.map(row => row.category_id);
+
+                console.log('existingMovieIds: ', existingCategoryIds)
+
+                console.log('categoryID: ', categoryID)
+
+
+                const sortedExistingCategoryIds = existingCategoryIds.slice().sort();
+                const sortedCategoryID = categoryID.slice().sort();
+
+                // Compare arrays element by element
+                let equalArrays = true;
+                let missingCategoryId;
+
+                for (let i = 0; i < sortedCategoryID.length; i++) {
+                    if (sortedExistingCategoryIds[i] !== sortedCategoryID[i]) {
+                        equalArrays = false;
+                        missingCategoryId = sortedCategoryID[i];
+                        break;
+                    }
+                }
+
+                if (!equalArrays) {
+                    await pool.query(`insert into movies_category (movie_id, category_id) values($1, $2)`, [movieId, missingCategoryId]);
+                }
+            }
+            res.json({ message: 'movies category update Successfully' });
+        }
+    } catch (error) {
+        console.error('Error processing form data:', error);
+        res.status(500).send('Internal server error');
+    }
+})
+uploadData.post('/deleteCatGen', async (req, res) => {
+    const { movieId } = req.body;
+    console.log('movieId : ', movieId);
+    try {
+        await poolReadyPromise;
+        await pool.query(`DELETE FROM movies_category WHERE movie_id = $1`, [movieId])
+        res.json({ message: 'movies category Delete Successfully' });
+    } catch (error) {
+        console.error('Error processing form data:', error);
+        res.status(500).send('Internal server error');
+    }
+})
+
 module.exports = uploadData;

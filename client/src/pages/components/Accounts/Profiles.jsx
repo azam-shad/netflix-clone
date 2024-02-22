@@ -184,7 +184,6 @@ const Profiles = () => {
         // updateAddress();
     }, [uploadedImage]);
 
-
     useEffect(() => {
         console.log('Address:', address);
         console.log('City:', cities);
@@ -195,9 +194,6 @@ const Profiles = () => {
         console.log('lastName:', lastName);
         // setIsProfileEdited(true);
     }, [address, cities, states, country, zipCode, firstName, lastName]);
-
-
-
 
     const handleInputClick = (inputId) => {
         setClickedInput((prevInput) => (prevInput === inputId ? null : inputId));
@@ -211,7 +207,6 @@ const Profiles = () => {
 
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
-
 
     const handleClear = () => {
         // Implement clearing logic for each field here

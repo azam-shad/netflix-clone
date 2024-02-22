@@ -31,7 +31,7 @@ const MoviesUpload = () => {
 
 
     useEffect(() => {
-        
+
         const fetchDetail = async () => {
             const responce = await fetch(`http://localhost:5000/adminData/category_genres`);
             const data = await responce.json();
@@ -39,7 +39,7 @@ const MoviesUpload = () => {
             setGenresDetail(data.detailsGenres)
         }
         fetchDetail();
-       
+
     }, []);
 
 

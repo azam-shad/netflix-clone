@@ -18,10 +18,10 @@ export const userColumn = [
             );
         },
     },
-    { field: 'director', headerName: 'Director Name', width: 200 },
-    { field: 'release_date', headerName: 'Release Date', width: 150 },
-    { field: 'duration', headerName: 'Length', width: 100 },
+    { field: 'director', headerName: 'Director Name', width: 190 },
+    { field: 'release_date', headerName: 'Release Date', width: 100 },
+    { field: 'duration', headerName: 'Length', width: 70 },
     { field: 'category_name', headerName: 'Category', width: 250 },
-    { field: 'name', headerName: 'Genres', width: 150 },
+    { field: 'name', headerName: 'Genres', width: 100 },
 
 ];

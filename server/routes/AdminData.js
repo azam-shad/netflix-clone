@@ -147,9 +147,9 @@ adminData.get('/moviesDetails', async (req, res) => {
         STRING_AGG(c.category_name::TEXT, ', ') AS category_name
         FROM 
             movies m
-        JOIN 
+        LEFT JOIN 
             movies_category mc ON m.movie_id = mc.movie_id
-        JOIN 
+        LEFT JOIN 
             category c ON mc.category_id = c.category_id
         JOIN 
             movie_genres mg ON m.movie_id = mg.movie_id
@@ -166,24 +166,29 @@ adminData.get('/moviesDetails', async (req, res) => {
             g.name`);
 
 
-        const TrendingMovies = await pool.query(`select
-        m.title, 
-        m.release_date, 
-        m.average_rating, 
+        const TrendingMovies = await pool.query(`SELECT
+        m.title,
+        m.release_date,
+        m.average_rating,
         array_agg(g.name) as genres
-       FROM 
-           movies m
-       JOIN 
-           movie_genres mg ON m.movie_id = mg.movie_id
-       JOIN 
-           genres g ON mg.genre_id = g.genre_id
-       WHERE 
-           TO_DATE(m.release_date, 'YYYY-MM-DD') >= CURRENT_DATE - INTERVAL '10000 days'::interval
-       GROUP BY 
-           m.movie_id, m.title, m.release_date, m.average_rating
-       ORDER BY 
-           m.total_views DESC
-       LIMIT 3`);
+    FROM
+        movies m
+    JOIN
+        movie_genres mg ON m.movie_id = mg.movie_id
+    JOIN
+        genres g ON mg.genre_id = g.genre_id
+    JOIN
+        movies_category mc ON m.movie_id = mc.movie_id
+    JOIN
+        category c ON mc.category_id = c.category_id
+    WHERE
+        c.category_name = 'Trending'
+        AND TO_DATE(m.release_date, 'YYYY-MM-DD') >= CURRENT_DATE - INTERVAL '30 days'::interval
+    GROUP BY
+        m.movie_id, m.title, m.release_date, m.average_rating
+    ORDER BY
+        m.total_views DESC
+    LIMIT 10`);
 
         const RevenueStatistics = await pool.query(`SELECT 
        ua.user_id, 
@@ -214,6 +219,55 @@ adminData.get('/moviesDetails', async (req, res) => {
         const trandMovies = TrendingMovies.rows;
         const adminMoviesList = moviesDetail.rows;
         res.json({ adminMoviesList, trandMovies, revenueMovies, revenueBasic, revenueStandard, revenuePremium });
+    } catch (error) {
+        console.error('Error fetching user details:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+adminData.get('/moviesDetail/:movieId', async (req, res) => {
+    const movieId = req.params.movieId;
+    console.log('movieId : ', movieId);
+    try {
+        await poolReadyPromise;
+        // console.log("This is a userDetails");
+
+        const moviesDetail = await pool.query(`SELECT 
+        m.movie_id,
+        m.title,
+        m.description,
+        m.release_date,
+        m.duration,
+        m.poster_url,
+        m.director,
+        g.name,
+        STRING_AGG(c.category_name::TEXT, ', ') AS category_name
+        FROM 
+            movies m
+        LEFT JOIN 
+            movies_category mc ON m.movie_id = mc.movie_id
+        LEFT JOIN 
+            category c ON mc.category_id = c.category_id
+        JOIN 
+            movie_genres mg ON m.movie_id = mg.movie_id
+        JOIN 
+            genres g ON mg.genre_id = g.genre_id
+        WHERE
+            m.movie_id = $1
+        GROUP BY 
+            m.movie_id,
+            m.title,
+            m.description,
+            m.release_date,
+            m.duration,
+            m.poster_url,
+            m.director,
+            g.name`, [movieId]);
+
+
+
+        // console.log('viewUsers: ', viewUsers.rows);
+        const adminMoviesList = moviesDetail.rows[0];
+        res.json({ adminMoviesList });
     } catch (error) {
         console.error('Error fetching user details:', error);
         res.status(500).json({ error: 'Internal Server Error' });
