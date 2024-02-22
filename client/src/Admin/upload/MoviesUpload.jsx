@@ -33,7 +33,7 @@ const MoviesUpload = () => {
     useEffect(() => {
 
         const fetchDetail = async () => {
-            const responce = await fetch(`http://localhost:5000/adminData/category_genres`);
+            const responce = await fetch(`https://netflix-clone-q429.onrender.com/adminData/category_genres`);
             const data = await responce.json();
             setCategoryDetail(data.detailsCategory)
             setGenresDetail(data.detailsGenres)
@@ -96,7 +96,7 @@ const MoviesUpload = () => {
                 director,
             };
 
-            const responce = await fetch(`http://localhost:5000/adminUpload/moviesUpload`, {
+            const responce = await fetch(`https://netflix-clone-q429.onrender.com/adminUpload/moviesUpload`, {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -121,7 +121,7 @@ const MoviesUpload = () => {
                 fileFormData.append('categoryID', categoryID);
                 fileFormData.append('genresID', genresID);
 
-                const fileResponse = await fetch(`http://localhost:5000/adminUpload/uploadMovie`, {
+                const fileResponse = await fetch(`https://netflix-clone-q429.onrender.com/adminUpload/uploadMovie`, {
                     method: 'POST',
                     mode: 'cors',
                     body: fileFormData,

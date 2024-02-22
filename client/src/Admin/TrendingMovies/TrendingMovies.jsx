@@ -7,7 +7,7 @@ const TrendingMovies = () => {
     useEffect(() => {
         const fetchTrendingMovies = async () => {
             try {
-                const responce = await fetch(`http://localhost:5000/adminData/moviesDetails`);
+                const responce = await fetch(`https://netflix-clone-q429.onrender.com/adminData/moviesDetails`);
                 const data = await responce.json();
                 const rowsWithId = data.trandMovies.map((row, index) => ({ ...row, id: index + 1 }));
                 setMovies(rowsWithId)

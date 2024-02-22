@@ -12,7 +12,7 @@ const RevenueStatistics = () => {
 
         const fetchRevenueStatistics = async () => {
             try {
-                const responce = await fetch(`http://localhost:5000/adminData/moviesDetails`);
+                const responce = await fetch(`https://netflix-clone-q429.onrender.com/adminData/moviesDetails`);
                 const data = await responce.json();
                 const basePrice = data.revenueBasic
                 const baseStandard = data.revenueStandard;

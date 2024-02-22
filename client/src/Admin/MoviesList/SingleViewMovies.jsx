@@ -24,7 +24,7 @@ const SingleViewMovies = () => {
     useEffect(() => {
         const fetchMovieData = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/adminData/moviesDetail/${movieId}`);
+                const response = await fetch(`https://netflix-clone-q429.onrender.com/adminData/moviesDetail/${movieId}`);
                 const data = await response.json();
                 setMovieData(data.adminMoviesList);
                 console.log('data.adminMoviesList: ', data.adminMoviesList)
@@ -35,7 +35,7 @@ const SingleViewMovies = () => {
         };
 
         const fetchMoviesCategoryDetail = async () => {
-            const responce = await fetch(`http://localhost:5000/adminData/category_genres`);
+            const responce = await fetch(`https://netflix-clone-q429.onrender.com/adminData/category_genres`);
             const data = await responce.json();
             setCategoryDetail(data.detailsCategory)
             setGenresDetail(data.detailsGenres)
@@ -86,7 +86,7 @@ const SingleViewMovies = () => {
         event.preventDefault();
         try {
             const body = { movieId, categoryID, genresID }
-            const responce = await fetch(`http://localhost:5000/adminUpload/updateCatGen`, {
+            const responce = await fetch(`https://netflix-clone-q429.onrender.com/adminUpload/updateCatGen`, {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -113,7 +113,7 @@ const SingleViewMovies = () => {
         event.preventDefault();
         try {
             const body = { movieId }
-            const responce = await fetch(`http://localhost:5000/adminUpload/deleteCatGen`, {
+            const responce = await fetch(`https://netflix-clone-q429.onrender.com/adminUpload/deleteCatGen`, {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },

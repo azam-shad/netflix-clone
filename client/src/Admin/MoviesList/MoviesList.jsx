@@ -20,7 +20,7 @@ const MoviesList = () => {
     useEffect(() => {
         const moviesLists = async () => {
             try {
-                const responce = await fetch(`http://localhost:5000/adminData/moviesDetails`);
+                const responce = await fetch(`https://netflix-clone-q429.onrender.com/adminData/moviesDetails`);
                 const data = await responce.json();
                 const rowsWithId = data.adminMoviesList.map((row, index) => ({ ...row, id: index + 1 }));
                 setMoviesRow(rowsWithId)

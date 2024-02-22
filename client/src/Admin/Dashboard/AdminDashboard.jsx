@@ -18,7 +18,7 @@ const AdminDashboard = () => {
 
         const fetchData = async () => {
 
-            const responce = await fetch(`http://localhost:5000/adminData/counts`);
+            const responce = await fetch(`https://netflix-clone-q429.onrender.com/adminData/counts`);
             if (responce.ok) {
                 const data = await responce.json();
                 setAdminCount(data.countsAdmin);

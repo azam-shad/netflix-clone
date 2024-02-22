@@ -22,7 +22,7 @@ const AdminUsers = () => {
         
         const fetchData = async () => {
             try {
-                const responce = await fetch(`http://localhost:5000/adminData/userDetails`);
+                const responce = await fetch(`https://netflix-clone-q429.onrender.com/adminData/userDetails`);
                 const data = await responce.json();
 
                 const rowsWithId = data.adminViewUser.map((row, index) => ({ ...row, id: index + 1 }));
@@ -39,7 +39,7 @@ const AdminUsers = () => {
 
     const updateUserStatus = async (userId, status) => {
         try {
-            const response = await fetch(`http://localhost:5000/adminData/updateStatus/${userId}`, {
+            const response = await fetch(`https://netflix-clone-q429.onrender.com/adminData/updateStatus/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

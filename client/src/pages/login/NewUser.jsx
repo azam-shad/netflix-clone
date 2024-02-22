@@ -38,7 +38,7 @@ const NewUser = () => {
             }
 
             const body = { selectedGender, countryCode, FirstName, LastName, userEmail, phoneNumber, loginPassword }
-            const response = await fetch(`http://localhost:5000/auth/createNewAccount`, {
+            const response = await fetch(`https://netflix-clone-q429.onrender.com/auth/createNewAccount`, {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },

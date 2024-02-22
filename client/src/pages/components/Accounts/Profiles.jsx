@@ -57,7 +57,7 @@ const Profiles = () => {
         try {
             const userId = localStorage.getItem('user_id')
             const body = { userId, address, cities, states, country, zipCode, firstName, lastName }
-            const responce = await fetch('http://localhost:5000/updateDetails/updateAddress', {
+            const responce = await fetch('https://netflix-clone-q429.onrender.com/updateDetails/updateAddress', {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -85,7 +85,7 @@ const Profiles = () => {
         const userId = localStorage.getItem('user_id')
         const fetchImageData = async (userId) => {
             try {
-                const responce = await fetch(`http://localhost:5000/view/getImage?userId=${userId}`, {
+                const responce = await fetch(`https://netflix-clone-q429.onrender.com/view/getImage?userId=${userId}`, {
                     method: 'GET',
                 })
                 if (responce.ok) {
@@ -104,7 +104,7 @@ const Profiles = () => {
                 userId: userId
             }
             try {
-                const responce = await fetch('http://localhost:5000/view/views', {
+                const responce = await fetch('https://netflix-clone-q429.onrender.com/view/views', {
                     method: 'POST',
                     mode: 'cors',
                     headers: { 'Content-Type': 'application/json' },
@@ -137,7 +137,7 @@ const Profiles = () => {
                     formData.append('file', uploadedImage);
                     formData.append('userId', userId)
 
-                    const response = await fetch('http://localhost:5000/view/updateImage', {
+                    const response = await fetch('https://netflix-clone-q429.onrender.com/view/updateImage', {
                         method: 'POST',
                         body: formData,
                     });
@@ -159,7 +159,7 @@ const Profiles = () => {
 
         const fetchAddress = async () => {
             const body = { userId: userId };
-            const responce = await fetch(`http://localhost:5000/view/viewAddress`, {
+            const responce = await fetch(`https://netflix-clone-q429.onrender.com/view/viewAddress`, {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -253,7 +253,7 @@ const Profiles = () => {
                         <Card.Img
                             variant='top'
                             // src={viewImages || userDefaultImage}
-                            src={viewImages ? `http://localhost:5000/profilImage/${viewImages}` : userDefaultImage}
+                            src={viewImages ? `https://netflix-clone-q429.onrender.com/profilImage/${viewImages}` : userDefaultImage}
                             alt='ProfileImage'
                             className='imageStyle'
                             onClick={() => fileInputRef.current.click()}

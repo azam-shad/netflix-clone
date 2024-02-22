@@ -11,7 +11,7 @@ export const userColumn = [
                 <div className="cellWithImg">
                     <img
                         className="user-avatar"
-                        src={`http://localhost:5000/uploadsImageandVideo/${params.row.poster_url}`}
+                        src={`https://netflix-clone-q429.onrender.com/uploadsImageandVideo/${params.row.poster_url}`}
                         alt={params.row.poster_url}
                     />
                 </div>

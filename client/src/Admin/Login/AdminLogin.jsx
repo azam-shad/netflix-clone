@@ -31,7 +31,7 @@ const AdminLogin = () => {
         try {
             // Clear existing data in localStorage
             localStorage.clear();
-            const responce = await fetch('http://localhost:5000/auth/adminLogin', {
+            const responce = await fetch('https://netflix-clone-q429.onrender.com/auth/adminLogin', {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },

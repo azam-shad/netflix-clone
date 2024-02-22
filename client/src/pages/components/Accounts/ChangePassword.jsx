@@ -21,7 +21,7 @@ const ChangePassword = () => {
             }
             try {
 
-                const responce = await fetch('http://localhost:5000/auth/getEmail', {
+                const responce = await fetch('https://netflix-clone-q429.onrender.com/auth/getEmail', {
                     method: 'POST',
                     mode: 'cors',
                     headers: { 'Content-Type': 'application/json' },
@@ -57,7 +57,7 @@ const ChangePassword = () => {
 
         try {
             const body = { email, newPassword, oldPassword };
-            const oldPasswordCheck = await fetch('http://localhost:5000/auth/checkOldPassword', {
+            const oldPasswordCheck = await fetch('https://netflix-clone-q429.onrender.com/auth/checkOldPassword', {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -76,7 +76,7 @@ const ChangePassword = () => {
 
             if (newPassword === confrimPassword) {
 
-                const responce = await fetch('http://localhost:5000/auth/updatePassword', {
+                const responce = await fetch('https://netflix-clone-q429.onrender.com/auth/updatePassword', {
                     method: 'POST',
                     mode: 'cors',
                     headers: { 'Content-Type': 'application/json' },

@@ -29,7 +29,7 @@ const Login = () => {
         try {
             // Clear existing data in localStorage
             localStorage.clear();
-            const responce = await fetch('http://localhost:5000/auth/login', {
+            const responce = await fetch('https://netflix-clone-q429.onrender.com/auth/login', {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },

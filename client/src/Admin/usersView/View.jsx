@@ -14,7 +14,7 @@ const View = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/adminData/viewDetails/${userId}`);
+        const response = await fetch(`https://netflix-clone-q429.onrender.com/adminData/viewDetails/${userId}`);
         const data = await response.json();
         setUserData(data.userView);
         setAddressData(data.addressView);
@@ -29,7 +29,7 @@ const View = () => {
 
   const updateUserStatus = async (status) => {
     try {
-      const response = await fetch(`http://localhost:5000/adminData/updateStatus/${userId}`, {
+      const response = await fetch(`https://netflix-clone-q429.onrender.com/adminData/updateStatus/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
