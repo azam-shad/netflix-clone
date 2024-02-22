@@ -23,7 +23,7 @@ const corsOptions = {
     origin: 'https://netflix-clone-nine-tawny.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
-    optionsSuccessStatus: 204,
+    optionsSuccessStatus: 200,
 }
 // MIDDLEWARE
 app.use(cors(corsOptions));
