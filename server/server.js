@@ -13,8 +13,14 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
+// const corsOptions = {
+//     origin: 'http://localhost:3000',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true,
+//     optionsSuccessStatus: 204,
+// }
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://netflix-clone-nine-tawny.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
