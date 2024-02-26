@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Alert, Button, Card, Form, Modal } from 'react-bootstrap';
-import userDefaultImage from '../../assets/userProfileImage/21104.png'
+import userDefaultImage from '../../assets/userImage/21104.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAt, faBroom, faEdit, faLock, faMap, faSave } from '@fortawesome/free-solid-svg-icons';
 import ChangePassword from './ChangePassword';

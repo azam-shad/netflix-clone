@@ -1,7 +1,7 @@
 import React from 'react';
 import './feature.scss';
-import rightSideImage from '../assets/tv.png'
-import videoTv from '../assets/video-tv-in-0819.m4v'
+import rightSideImage from '../assets/userImage/tv.png'
+import videoTv from '../assets/userImage/video-tv-in-0819.m4v'
 
 const Feature = () => {
     return (

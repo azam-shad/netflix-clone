@@ -3,8 +3,8 @@ import { Card } from 'react-bootstrap';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import './feature.scss';
-import rightSideImage from '../assets/mobile-0819.jpg';
-import boxshot from '../assets/boxshot.png'
+import rightSideImage from '../assets/userImage/mobile-0819.jpg';
+import boxshot from '../assets/userImage/boxshot.png'
 
 
 const FeatureOne = () => {

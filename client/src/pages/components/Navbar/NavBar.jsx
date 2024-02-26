@@ -1,5 +1,5 @@
 import React from 'react'
-import netflixLogo from '../../assets/logo.png';
+import netflixLogo from '../../assets/userImage/logo.png';
 import './navbar.scss';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
