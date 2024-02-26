@@ -1,6 +1,6 @@
 const adminData = require('express').Router();
-const poolReadyPromise = require('../utils/db');
-const pool = require('../utils/db');
+const poolReadyPromise = require('../utils/db.js');
+const pool = require('../utils/db.js');
 
 
 adminData.get('/counts', async (req, res) => {

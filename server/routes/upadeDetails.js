@@ -1,6 +1,6 @@
 const updateDetail = require('express').Router();
-const poolReadyPromise = require('../utils/db');
-const pool = require('../utils/db');
+const poolReadyPromise = require('../utils/db.js');
+const pool = require('../utils/db.js');
 
 updateDetail.post('/updateAddress', async (req, res) => {
     const { userId, address, cities, states, country, zipCode, firstName, lastName } = req.body;

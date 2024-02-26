@@ -3,8 +3,8 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 
-const poolReadyPromise = require('../utils/db1');
-const pool = require('../utils/db1');
+const poolReadyPromise = require('../utils/db');
+const pool = require('../utils/db');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {

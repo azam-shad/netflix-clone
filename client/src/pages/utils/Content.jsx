@@ -17,7 +17,7 @@ import AdminLogin from '../../Admin/Login/AdminLogin';
 import './content.scss';
 import Loders from '../assets/Common/Loders';
 import AdminRoutes from '../../Admin/AdminRoutes/AdminRoutes';
-import AdminRegister from '../../Admin/AdminRegister/AdminRegister';
+import AdminRegister from '../../Admin/Login/AdminRegister';
 
 const Content = () => {
     const { isLoggedIn, isAdminLogin } = useAuth();
@@ -123,11 +123,11 @@ const Content = () => {
                     path={'/admin/login'}
                     element={isAdminLogin ? <Navigate to="/admin/dashboard" /> : <AdminLogin />}
                 />
-                {/* <Route
+                <Route
                     exact
                     path={'/admin/register'}
                     element={isAdminLogin ? <Navigate to="/admin/dashboard" /> : <AdminRegister />}
-                /> */}
+                />
 
                 {showAdmin && (
                     <Route path="/admin/*" element={<AdminRoutes />} />
