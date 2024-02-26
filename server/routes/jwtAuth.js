@@ -206,59 +206,6 @@ router.post('/createNewAccount', async (req, res) => {
     }
 })
 
-router.post('/createAdminNewAccount', async (req, res) => {
-    const { firstname, lastname, email, mobile, zip_code, street, password, country, countryCode, state, city, gender } = req.body;
-
-    // console.log('firstname, lastname, email, mobile, zip_code, address, password, country, countryCode, state : ', firstname, lastname, email, mobile, zip_code, street, password, country, countryCode, state)
-
-    try {
-        await poolReadyPromise;
-
-        const user = await pool.query('SELECT email FROM users_accounts where email = $1', [email]);
-        if (user.rows.length > 0) {
-            return res.status(401).json('User Already Exits !');
-        }
-        const userStatus = 'enable'
-        const newUser = await pool.query('INSERT INTO users_accounts(firstName, password, email, created_on, last_login, gender, countryCode, phoneNumber, lastname, status) values ($1, $2, $3, NOW(), NOW(), $4, $5, $6, $7, $8 ) RETURNING user_id', [firstname, password, email, gender, countryCode, mobile, lastname, userStatus]);
-
-        const user_id = newUser.rows[0].user_id;
-
-        // const { firstname, lastname, email, mobile, zip_code, street, password, country, countryCode, state } = req.body;
-
-        // Insert address data
-        await pool.query(`
-            INSERT INTO address(user_id, street, state, zip_code, country, city) 
-            VALUES ($1, $2, $3, $4, $5, $6)`,
-            [user_id, street, state, zip_code, country, city]);
-
-        // const defaultRole = 'admin';
-        const roleName = 'admin'; // Change this to the desired role name
-        const roleDB = await pool.query(`SELECT role_id FROM users_roles WHERE role_name = $1`, [roleName]);
-        const roleId = roleDB.rows[0].role_id;
-
-        // await pool.query(`
-        //     INSERT INTO users_account_roles (user_id, role_id, grant_date)
-        //     VALUES ($1, (SELECT role_id FROM users_roles WHERE role_name = $2), NOW())
-        // `, [user_id, defaultRole]);
-        await pool.query(`
-            INSERT INTO users_account_roles (user_id, role_id, grant_date)
-            VALUES ($1, $2, NOW())
-        `, [user_id, roleId]);
-
-
-        const token = await jwtGenerator(user_id);
-        // const userFirstName = newUser.rows[0].firstname;
-        // console.log(FirstName);
-        // const userLastName = newUser.rows[0].lastname;
-        // const user_email = newUser.rows[0].email;
-        res.json({ message: "Account Create successfully", user_id, token });
-        // res.json({ message: "Account Create successfully" });
-
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).json('Server Error');
-    }
-})
 
 router.post('/createAdminNewAccount', async (req, res) => {
     const { firstname, lastname, email, mobile, zip_code, street, password, country, countryCode, state, city, gender } = req.body;
