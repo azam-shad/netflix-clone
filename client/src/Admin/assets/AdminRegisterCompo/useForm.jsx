@@ -17,6 +17,7 @@ const useForm = () => {
         city: "",
         countryCode: "",
         state: "",
+        adminRole: "",
     });
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState({});

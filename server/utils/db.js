@@ -1,3 +1,28 @@
+// const Pool = require('pg').Pool;
+
+
+// // PostgreSQL connection pool
+// const pool = new Pool({
+//     user: 'postgres',
+//     host: 'localhost',
+//     database: 'netflix',
+//     password: 'root',
+//     port: 5432, // Default PostgreSQL port
+// })
+
+
+// // After creating the pool
+// pool.on('connect', () => {
+//     console.log('Connected to the database');
+// });
+
+// // https://netflix-clone-q429.onrender.com
+// // http://localhost:5000
+
+// module.exports = pool;
+
+
+
 const path = require('path');
 const { Pool } = require('pg');
 require('dotenv').config();

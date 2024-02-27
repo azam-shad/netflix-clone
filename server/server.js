@@ -20,7 +20,7 @@ const corsOptions = {
     optionsSuccessStatus: 200,
 }
 // MIDDLEWARE
-// app.use(cors(corsOptions));
+// // app.use(cors(corsOptions));
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
@@ -39,3 +39,47 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is up and running on https://netflix-clone-q429.onrender.com:${PORT}`);
 });
+
+
+// const app = express();
+
+// app.use(bodyParser.urlencoded({ extended: true }))
+
+// const corsOptions = {
+//     origin: 'http://localhost:3000',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true,
+//     optionsSuccessStatus: 204,
+// }
+
+// // MIDDLEWARE
+// // app.use(cors(corsOptions));
+// app.use(cors());
+// app.use(express.json());
+// app.use(express.static('public'));
+// // app.use(express.static(path.join(__dirname, 'client')));
+
+// //  ROUTERS (register and login)
+// app.use('/auth', router);
+// app.use('/view', view);
+// app.use('/updateDetails', updateDetail);
+// app.use('/adminData', adminData);
+// app.use('/adminUpload', uploadData);
+
+
+
+// app.use(express.static('client'));
+
+// // Catch-all route handler
+
+// app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
+// });
+
+
+
+// const PORT = process.env.PORT || 5000;
+// // Start the Express server
+// app.listen(PORT, () => {
+//     console.log(`Server is up and running on http://localhost:${PORT}`);
+// });

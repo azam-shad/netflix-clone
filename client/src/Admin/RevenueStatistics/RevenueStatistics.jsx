@@ -17,11 +17,15 @@ const RevenueStatistics = () => {
                 const basePrice = data.revenueBasic
                 const baseStandard = data.revenueStandard;
                 const basePremium = data.revenuePremium;
+                console.log('basePremium: ', basePremium);
                 const rowsWithId = data.revenueMovies.map((row, index) => ({ ...row, id: index + 1 }));
+
+                console.log('rowsWithId: ', rowsWithId)
 
                 const reveBasic = rowsWithId.find(row => row.name === 'Basic');
                 const reveStandard = rowsWithId.find(row => row.name === "Standard");
                 const revePremium = rowsWithId.find(row => row.name === "Premium");
+                console.log('revePremium: ', revePremium)
                 if (reveBasic) {
                     const totalBasicPrices = reveBasic.price;
                     const totalBasicPrice = totalBasicPrices * basePrice
@@ -44,6 +48,7 @@ const RevenueStatistics = () => {
         fetchRevenueStatistics();
     }, []);
 
+    console.log('premiumCount: ', premiumCount)
     const mockRevenueData = [
         { month: 'January', revenueBasic: basicCount, revenuePremium: premiumCount, revenueStandard: StandardCount },
         { month: 'February', revenueBasic: basicCount, revenuePremium: premiumCount, revenueStandard: StandardCount },

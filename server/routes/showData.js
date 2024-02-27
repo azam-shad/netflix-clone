@@ -129,6 +129,26 @@ view.post('/updateImage', upload.single('file'), async (req, res) => {
 })
 
 
+view.get('/getPlans', async (req, res) => {
+    // const userId = req.query.userId;
+
+    try {
+        const result = await pool.query(`SELECT * FROM subscriptions_cat`);
+        const AdminRole = await pool.query(`SELECT * FROM users_roles`);
+
+        const subscriptionsName = result.rows
+        const adminRoles = AdminRole.rows
+
+
+        res.json({ subscriptionsName, adminRoles })
+    } catch (error) {
+        console.error('Error retrieving image:', error);
+        res.status(500).json({ success: false, message: 'Error retrieving image from the database' });
+    }
+
+})
+
+
 
 
 module.exports = view

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faLock, faPhone, faUser, faVenusMars } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faLock, faPhone, faTicket, faUser, faVenusMars } from '@fortawesome/free-solid-svg-icons'
 import { Form } from 'react-bootstrap';
 import './register.scss'
 import { Link, useNavigate } from 'react-router-dom'
@@ -17,6 +17,8 @@ const NewUser = () => {
     const [LastName, setLastName] = useState('')
     const [userEmail, setUserEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [plans, setPlans] = useState([]);
+    const [selectPlan, setSelectPlan] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
     const [confrimPassword, setConfrimPassword] = useState('');
     const history = useNavigate()
@@ -28,6 +30,16 @@ const NewUser = () => {
 
     }, [isLoggedIn, history])
 
+    useEffect(() => {
+        const fetchPlans = async () => {
+            const response = await fetch(`https://netflix-clone-q429.onrender.com/view/getPlans`);
+            const data = await response.json();
+            setPlans(data.subscriptionsName)
+            console.log(data.subscriptionsName);
+        }
+        fetchPlans();
+    }, []);
+
     const CreateUser = async (e) => {
         e.preventDefault();
         try {
@@ -37,7 +49,7 @@ const NewUser = () => {
                 return;
             }
 
-            const body = { selectedGender, countryCode, FirstName, LastName, userEmail, phoneNumber, loginPassword }
+            const body = { selectedGender, countryCode, FirstName, LastName, userEmail, phoneNumber, loginPassword, selectPlan }
             const response = await fetch(`https://netflix-clone-q429.onrender.com/auth/createNewAccount`, {
                 method: 'POST',
                 mode: 'cors',
@@ -74,6 +86,7 @@ const NewUser = () => {
         setPhoneNumber('');
         setLoginPassword('');
         setConfrimPassword('');
+        setSelectPlan('');
     }
     return (
         <>
@@ -85,6 +98,20 @@ const NewUser = () => {
                         <h4 className="card-title mt-3 text-center">Create Account</h4>
                         <p className="text-center">Get started with your free account</p>
                         <form>
+                            <div className="form-group input-group custom-select mb-3">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text"> <FontAwesomeIcon icon={faTicket} /></span>
+                                </div>
+                                <Form.Select aria-label="Default select" className='' value={selectPlan} onChange={(e) => setSelectPlan(e.target.value)} required>
+                                    <option value='' disabled >Subcription plan</option>
+                                    {plans.map((plan) => (
+                                        <option key={plan.subscription_cat_id} value={plan.name} > {plan.name + ' - ' + plan.price}</option>
+                                    ))}
+                                    {/* <option value="male">Male</option>
+                                    <option value="femail">Female</option>
+                                    <option value="othe">Other</option> */}
+                                </Form.Select>
+                            </div>
                             <div className="form-group input-group">
                                 <div className="input-group-prepend mb-0">
                                     <span className="input-group-text"><FontAwesomeIcon icon={faUser} /></span>
@@ -145,7 +172,7 @@ const NewUser = () => {
                         </form>
                     </article>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

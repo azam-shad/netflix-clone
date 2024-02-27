@@ -20,10 +20,11 @@ adminData.get('/counts', async (req, res) => {
     WHERE ur.role_name = 'user'
     AND ua.status = 'disable'`);
 
-    const adminCounts = await pool.query(`SELECT COUNT(user_id)
+    const adminCounts = await pool.query(`SELECT COUNT(admin_id)
     FROM users_account_roles uar
     JOIN users_roles ur ON uar.role_id = ur.role_id
     WHERE ur.role_name = 'admin'`);
+
 
     const subscribed_user_count = await pool.query(`SELECT COUNT(ua.subscription_id)
     FROM users_accounts ua
@@ -40,6 +41,7 @@ adminData.get('/counts', async (req, res) => {
     const disableUsers = disableUserCounts.rows[0].count
     const subscribed = subscribed_user_count.rows[0].count
     const countMovies = moviesCount.rows[0].count
+
 
     res.json({ countsUser, countsAdmin, disableUsers, subscribed, countMovies })
 })
@@ -203,9 +205,21 @@ adminData.get('/moviesDetails', async (req, res) => {
        subscriptions_cat sc ON s.subscription_cat_id = sc.subscription_cat_id`);
 
 
-        const BasicReven = await pool.query(`select count(subscription_id) from users_accounts where  subscription_id = 1`);
-        const StandardReven = await pool.query(`select count(subscription_id) from users_accounts where  subscription_id = 2`);
-        const PremiumdReven = await pool.query(`select count(subscription_id) from users_accounts where  subscription_id = 3`);
+        const BasicReven = await pool.query(`SELECT COUNT(*) 
+        FROM users_accounts 
+        JOIN subscriptions ON users_accounts.subscription_id = subscriptions.subscription_id
+        JOIN subscriptions_cat ON subscriptions.subscription_cat_id = subscriptions_cat.subscription_cat_id
+        WHERE subscriptions_cat.subscription_cat_id = 1`);
+        const StandardReven = await pool.query(`SELECT COUNT(*) 
+        FROM users_accounts 
+        JOIN subscriptions ON users_accounts.subscription_id = subscriptions.subscription_id
+        JOIN subscriptions_cat ON subscriptions.subscription_cat_id = subscriptions_cat.subscription_cat_id
+        WHERE subscriptions_cat.subscription_cat_id = 2`);
+        const PremiumdReven = await pool.query(`SELECT COUNT(*) 
+        FROM users_accounts 
+        JOIN subscriptions ON users_accounts.subscription_id = subscriptions.subscription_id
+        JOIN subscriptions_cat ON subscriptions.subscription_cat_id = subscriptions_cat.subscription_cat_id
+        WHERE subscriptions_cat.subscription_cat_id = 3`);
 
 
         const revenueBasic = BasicReven.rows[0].count

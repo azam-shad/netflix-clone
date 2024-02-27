@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CountryCity from '../assets/AdminRegisterCompo/CountryCity';
 import useForm from '../assets/AdminRegisterCompo/useForm';
 import '../assets/AdminRegisterCompo/forms.scss'
@@ -8,6 +8,19 @@ import { Alert, Form } from 'react-bootstrap';
 
 const AdminRegister = () => {
     const { handleChange, inputs, handleSubmit, errors, success } = useForm();
+    const [adminRole, setAdminRole] = useState([]);
+    useEffect(() => {
+        const fetchAdminRoles = async () => {
+            const response = await fetch(`https://netflix-clone-q429.onrender.com/view/getPlans`);
+            const data = await response.json();
+            console.log(data.adminRoles)
+            setAdminRole(data.adminRoles)
+            // setPlans(data)
+
+        }
+        fetchAdminRoles();
+    }, [])
+
     return (
         <div className='text-black  registerMain'>
             {success && typeof success === 'string' && <Alert variant='success' className='alertMessage mt-3'>{success}</Alert>}
@@ -17,6 +30,15 @@ const AdminRegister = () => {
             <div className="form__row" onSubmit={handleSubmit}>
                 <form >
                     {/* <SelectReason /> */}
+                    <select name="adminRole" value={inputs.adminRole} onChange={handleChange} required>
+                        <option value="" disabled selected>Select Role</option>
+                        {adminRole.map((role) => (
+                            <option key={role.role_id} value={role.role_name}>{role.role_name}</option>
+                        ))}
+
+                        {/* <option value="female">Female</option>
+                        <option value="other">Other</option> */}
+                    </select>
                     <input
                         type="text"
                         name="firstname"
